@@ -153,6 +153,12 @@
             description="Adds the Gradle nature and synchronizes this project as if the Gradle Import wizard had been run on its location.">
       </command>
       <command
+            id="org.eclipse.buildship.ui.commands.showversion"
+            categoryId="org.eclipse.buildship.ui.project"
+            name="Show Buildship Version"
+            description="Shows the current version of Buildship">
+      </command>
+      <command
             id="org.eclipse.buildship.ui.shortcut.test.run"
             categoryId="org.eclipse.debug.ui.category.run"
             name="Run Gradle Test"
@@ -233,6 +239,10 @@
                 </adapt>
             </iterate>
          </activeWhen>
+      </handler>
+      <handler
+            commandId="org.eclipse.buildship.ui.commands.showversion"
+            class="org.eclipse.buildship.ui.internal.workspace.ShowGradleVersionHandler">
       </handler>
     </extension>
 
@@ -438,6 +448,10 @@
                     label="Gradle">
                 <command
                         commandId="org.eclipse.buildship.ui.commands.refreshproject"
+                        style="push">
+                </command>
+                <command
+                        commandId="org.eclipse.buildship.ui.commands.showversion"
                         style="push">
                 </command>
                 <visibleWhen>
