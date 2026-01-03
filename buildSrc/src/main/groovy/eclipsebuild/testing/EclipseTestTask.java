@@ -6,7 +6,7 @@ import org.gradle.api.tasks.testing.Test;
 
 import java.util.Set;
 
-public class EclipseTestTask extends Test {
+public abstract class EclipseTestTask extends Test {
 
     @Override
     protected JvmTestExecutionSpec createTestExecutionSpec() {
