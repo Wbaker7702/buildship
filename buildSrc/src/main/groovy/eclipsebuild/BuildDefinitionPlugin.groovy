@@ -384,7 +384,9 @@ class BuildDefinitionPlugin implements Plugin<Project> {
             standardOutput = new LogOutputStream(project.logger, LogLevel.INFO)
             errorOutput = new LogOutputStream(project.logger, LogLevel.INFO)
 
+            String javaExe = System.getProperty("java.home") + "/bin/java"
             commandLine(config.eclipseSdkExe.path,
+                    '-vm', javaExe,
                     '-application', 'org.eclipse.equinox.p2.director',
                     '-repository', repositoryUrl,
                     '-uninstallIU', installIU,
@@ -409,7 +411,9 @@ class BuildDefinitionPlugin implements Plugin<Project> {
             standardOutput = new LogOutputStream(project.logger, LogLevel.INFO)
             errorOutput = new LogOutputStream(project.logger, LogLevel.INFO)
 
+            String javaExe = System.getProperty("java.home") + "/bin/java"
             commandLine(config.eclipseSdkExe.path,
+                    '-vm', javaExe,
                     '-application', 'org.eclipse.equinox.p2.director',
                     '-repository', repositoryUrl,
                     '-installIU', installIU,

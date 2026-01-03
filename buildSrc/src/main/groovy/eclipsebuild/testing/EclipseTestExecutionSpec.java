@@ -11,7 +11,7 @@ public class EclipseTestExecutionSpec extends JvmTestExecutionSpec {
     Set<String> includePatterns;
 
     public EclipseTestExecutionSpec(JvmTestExecutionSpec spec, Test testTask, Set<String> includePatterns) {
-        super(spec.getTestFramework(), spec.getClasspath(), spec.getCandidateClassFiles(), spec.isScanForTestClasses(), spec.getTestClassesDirs(), spec.getPath(), spec.getIdentityPath(), spec.getForkEvery(), spec.getJavaForkOptions(), spec.getMaxParallelForks(), spec.getPreviousFailedTestClasses());
+        super(spec.getTestFramework(), spec.getClasspath(), spec.getModulePath(), spec.getCandidateClassFiles(), spec.isScanForTestClasses(), spec.getTestClassesDirs(), spec.getPath(), spec.getIdentityPath(), spec.getForkEvery(), spec.getJavaForkOptions(), spec.getMaxParallelForks(), spec.getPreviousFailedTestClasses(), false);
         this.testTask = testTask;
         this.includePatterns = includePatterns;
     }

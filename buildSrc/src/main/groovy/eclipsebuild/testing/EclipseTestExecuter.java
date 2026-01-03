@@ -20,6 +20,7 @@ import org.gradle.api.file.FileTree;
 import org.gradle.api.internal.project.ProjectInternal;
 import org.gradle.api.internal.tasks.testing.*;
 import org.gradle.api.internal.tasks.testing.detection.TestFrameworkDetector;
+import org.gradle.api.tasks.testing.TestFailure;
 import org.gradle.api.internal.tasks.testing.processors.TestMainAction;
 import org.gradle.api.logging.Logger;
 import org.gradle.api.logging.Logging;
@@ -251,8 +252,8 @@ public final class EclipseTestExecuter implements TestExecuter<TestExecutionSpec
         final FileTree testClassFiles = testTask.getCandidateClassFiles();
         if (testTask.isScanForTestClasses()) {
             TestFrameworkDetector testFrameworkDetector = testTask.getTestFramework().getDetector();
-            testFrameworkDetector.setTestClasses(testTask.getTestClassesDirs().getFiles());
-            testFrameworkDetector.setTestClasspath(testTask.getClasspath().getFiles());
+            testFrameworkDetector.setTestClasses(new ArrayList<>(testTask.getTestClassesDirs().getFiles()));
+            testFrameworkDetector.setTestClasspath(new ArrayList<>(testTask.getClasspath().getFiles()));
             detector = new EclipsePluginTestClassScanner(testClassFiles, processor);
         } else {
             detector = new EclipsePluginTestClassScanner(testClassFiles, processor);
@@ -283,7 +284,7 @@ public final class EclipseTestExecuter implements TestExecuter<TestExecutionSpec
         }
 
         @Override
-        public void failure(Object o, Throwable throwable) {
+        public void failure(Object o, TestFailure failure) {
         }
     }
 

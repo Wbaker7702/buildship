@@ -85,7 +85,7 @@ class BundlePlugin implements Plugin<Project> {
 
         // add sources jar task
         project.task('sourcesJar', type: Jar, dependsOn: 'classes') {
-            classifier = 'sources'
+            archiveClassifier = 'sources'
             from project.sourceSets.main.allSource
         }
         project.artifacts { archives project.tasks.sourcesJar }
@@ -143,7 +143,9 @@ class BundlePlugin implements Plugin<Project> {
     private static void checkMappedVersion(VersionRange versionRange, String pluginName, Project project) {
         def mappedVersion = DependencyUtils.mappedVersion(project, pluginName)
         if (mappedVersion) {
-            def version = new Version(mappedVersion)
+            // handle versions with suffix like -jre
+            def osgiVersionString = mappedVersion.replace("-", ".")
+            def version = new Version(osgiVersionString)
             if (!versionRange.includes(version)) {
                 throw new GradleException("Mapped version '$mappedVersion' for dependency '$pluginName' does not match version range constraint '$versionRange' defined in MANIFEST.MF.")
             }

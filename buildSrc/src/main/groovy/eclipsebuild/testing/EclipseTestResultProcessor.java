@@ -5,6 +5,7 @@ import org.gradle.api.internal.tasks.testing.results.AttachParentTestResultProce
 import org.gradle.api.logging.Logger;
 import org.gradle.api.tasks.testing.TestOutputEvent;
 import org.gradle.api.tasks.testing.TestResult;
+import org.gradle.api.tasks.testing.TestFailure;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -117,7 +118,7 @@ public class EclipseTestResultProcessor {
         logger.info("Test failed (" + event.getTestId() + "): " + event.getTestName());
         String message = getFailureMessage(event);
         this.resultProcessor.output(this.currentTestMethod.getId(), new DefaultTestOutputEvent(TestOutputEvent.Destination.StdOut, message));
-        this.resultProcessor.failure(this.currentTestMethod.getId(), new EclipseTestFailure(message, event.getTrace()));
+        this.resultProcessor.failure(this.currentTestMethod.getId(), TestFailure.fromTestFrameworkFailure(new EclipseTestFailure(message, event.getTrace())));
     }
 
     private static String getFailureMessage(EclipseTestEvent.TestFailed event) {
