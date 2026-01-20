@@ -20,7 +20,7 @@ import org.gradle.api.logging.Logger
  * Converts an Eclipse update site into a Maven repository.
  */
 final class BundleMavenDeployer {
-  private final AntBuilder ant
+  private final Object ant
   private final String groupIdForBundles
   private final Logger logger
 
@@ -35,7 +35,7 @@ final class BundleMavenDeployer {
    * @param ant ant build instance to execute the deployment task defined in the maven-ant-tasks dependency
    * @param groupIdForBundles the maven groupId where the eclipse plugins will be published
    */
-  BundleMavenDeployer(AntBuilder ant, String groupIdForBundles, Logger logger = null) {
+  BundleMavenDeployer(Object ant, String groupIdForBundles, Logger logger = null) {
     this.ant = ant
     this.groupIdForBundles = groupIdForBundles
     this.logger = logger

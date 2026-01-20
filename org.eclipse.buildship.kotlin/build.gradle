@@ -3,6 +3,7 @@ apply plugin: eclipsebuild.BundlePlugin
 dependencies {
     compile 'org.gradle:gradle-kotlin-dsl-tooling-models:+'
     compile 'org.slf4j:slf4j-api:1.7.2'
+    bundled "com.google.guava:guava:$guavaVersion"
 }
 
 task updateKotlinModelJar(type: Copy) {
