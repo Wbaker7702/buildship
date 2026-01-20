@@ -34,14 +34,14 @@ import org.codehaus.plexus.embed.Embedder
  */
 class DeployMavenExecutor {
 
-    private final AntBuilder ant
+    private final Object ant
     private final File target
     private final File workFolder
 
     /**
      * Constructs Deployer with the specified parameters.
      */
-    DeployMavenExecutor(AntBuilder ant, File target) {
+    DeployMavenExecutor(Object ant, File target) {
         this.ant = ant
         this.target = target
         this.workFolder = new File(System.getProperty("java.io.tmpdir"), UUID.randomUUID().toString())

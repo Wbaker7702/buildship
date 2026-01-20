@@ -8,4 +8,6 @@ tasks.processResources.doFirst {
 
 dependencies {
     implementation 'org.slf4j:slf4j-api:1.7.2'
+    bundled "com.google.guava:guava:$guavaVersion"
+    bundled "com.google.code.gson:gson:2.11.0"
 }

@@ -20,10 +20,10 @@ dependencies {
     implementation 'nu.studer:java-ordered-properties:1.0.4'
     implementation 'org.apache.maven:maven-artifact-manager:2.2.1'
     implementation 'org.apache.maven.wagon:wagon-file:3.5.1'
-    implementation 'org.apache.bcel:bcel:6.5.0'
+    implementation 'org.apache.bcel:bcel:6.9.0'
     implementation "com.google.guava:guava:$guavaVersion-jre"
-    implementation 'commons-io:commons-io:2.11.0'
-    implementation 'org.apache.commons:commons-compress:1.22'
+    implementation 'commons-io:commons-io:2.16.1'
+    implementation 'org.apache.commons:commons-compress:1.26.1'
     testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
 }

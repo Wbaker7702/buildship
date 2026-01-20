@@ -5,6 +5,7 @@ dependencies {
     implementation project(':org.eclipse.buildship.compat')
     implementation project(':org.eclipse.buildship.core')
     implementation project(':org.eclipse.buildship.oomph')
+    bundled "com.google.guava:guava:$guavaVersion"
 }
 
 eclipseTest {
